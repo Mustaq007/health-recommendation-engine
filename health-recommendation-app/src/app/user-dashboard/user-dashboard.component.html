@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>User Details</h2>
+  
+    <!-- Email Input -->
+    <!-- <div class="input-container">
+      <input type="email" [(ngModel)]="email" placeholder="Enter your email">
+      <button (click)="fetchUserDetails()">View Details</button>
+    </div> -->
+  
+    <!-- Error Message -->
+    <!-- <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p> -->
+  
+    <!-- User Data Display -->
+    <div *ngIf="userData" class="card">
+      <h3>{{ userData.name }}</h3>
+      <p><strong>Email:</strong> {{ userData.emailAddress }}</p>
+      <p><strong>Date of Birth:</strong> {{ userData.dob }}</p>
+      <p><strong>Contact:</strong> {{ userData.contactNumber }}</p>
+      <p><strong>Address:</strong> {{ userData.address }}</p>
+      <p><strong>Gender:</strong> {{ userData.gender }}</p>
+      <p><strong>Age:</strong> {{ userData.age }}</p>
+      <p><strong>Medical History:</strong> {{ userData.medicalHistory }}</p>
+      <p><strong>Risk Recommendation:</strong> {{ userData.riskRecommendation }}</p>
+      <p><strong>Personalized Recommendation:</strong> {{ userData.personalizedRecommendation }}</p>
+      <p><strong>Doctor's Recommendation:</strong> {{ userData.doctorsRecommendation }}</p>
+    </div>
+    <div class="button-wrapper">
+      <button class="submit-btn" (click)="scheduleAppointMent()">Consult</button>
+      <button class="submit-btn" (click)="navigateToLogin()">Back</button>
+    </div>
+    <div *ngIf="consult">
+      <p style="color: green;"><strong>{{consultMessage}}</strong> 
+    </div> 
+  </div>
+  

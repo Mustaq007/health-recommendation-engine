@@ -1,0 +1,91 @@
+<div class="container">
+    <h2>Doctor Dashboard</h2>
+  
+    <!-- Email Input -->
+    <!-- <div class="input-container">
+      <input type="email" [(ngModel)]="email" placeholder="Enter email Id">
+      <button (click)="fetchUserDetails()">View Details</button>
+    </div> -->
+  
+    <!-- Error Message -->
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  
+    <!-- User Data Display -->
+
+    <div [hidden]="hiddenUserDetailsCard" class="userListCard">
+      <div *ngIf="userData && !showUserList" class="card">
+        <h3>{{ userData.name }}</h3>
+        <p><strong>Email:</strong> {{ userData.emailAddress }}</p>
+        <p><strong>Date of Birth:</strong> {{ userData.dob }}</p>
+        <p><strong>Contact:</strong> {{ userData.contactNumber }}</p>
+        <p><strong>Address:</strong> {{ userData.address }}</p>
+        <p><strong>Gender:</strong> {{ userData.gender }}</p>
+        <p><strong>Age:</strong> {{ userData.age }}</p>
+        <p><strong>Medical History:</strong> {{ userData.medicalHistory }}</p>
+        <p><strong>Risk Recommendation:</strong> {{ userData.riskRecommendation }}</p>
+        <p><strong>Personalized Recommendation:</strong> {{ userData.personalizedRecommendation }}</p>
+        <!-- <p><strong>Doctor's Recommendation:</strong> {{ userData.doctorsRecommendation }}</p> -->
+      </div>
+      <div *ngIf="userData && !showUserList" class="form-group">
+        <!-- <label>Prescription:</label> -->
+        <textarea [(ngModel)]="userData.doctorsRecommendation" placeholder="Enter Prescription"></textarea>
+      </div>
+      <div *ngIf="userData" class="input-container">
+        <button class="submit-btn" (click)="updateUserData()">Submit</button>
+        <button class="submit-btn" (click)="navigateToBack()">Back</button>
+      </div>
+      <div *ngIf="successMessage">
+        <p style="color: green;"><strong>{{successMessage}}</strong> 
+      </div>
+    </div>
+
+
+    <div class="userDetailsCard">
+      <table *ngIf="showUserList" class="user-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <!-- <th>DOB</th>
+            <th>Contact</th>
+            <th>Address</th> -->
+            <th>Gender</th>
+            <th>Email</th>
+            <!-- <th>Age</th>
+            <th>Medical History</th>
+            <th>Risk Recommendation</th>
+            <th>Personalized Recommendation</th>
+            <th>Doctor's Recommendation</th>
+            <th>Lifestyle Habit</th> -->
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <!-- <td>{{ user.dob }}</td>
+            <td>{{ user.contactNumber }}</td>
+            <td>{{ user.address }}</td> -->
+            <td>{{ user.gender }}</td>
+            <td>{{ user.emailAddress }}</td>
+            <td><button (click)="fetchUser(user.emailAddress)">View Details</button></td>
+            <!-- <td>{{ user.age }}</td>
+            <td>{{ user.medicalHistory }}</td>
+            <td>{{ user.riskRecommendation }}</td>
+            <td>{{ user.personalizedRecommendation }}</td>
+            <td>{{ user.doctorsRecommendation }}</td>
+            <td>{{ user.lifeStyleHabit }}</td> -->
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="showNoData">
+            No Data Available
+      </div>
+      <div *ngIf="showUserList || showNoData" style="margin-top:50px">
+        <button class="submit-btn" (click)="navigateToLogin()">Back</button>
+      </div>
+    </div>
+  </div>
+  

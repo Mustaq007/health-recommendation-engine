@@ -1,0 +1,23 @@
+
+<div class="login-container">
+    <div class="login-header">
+        <h1>Welcome</h1>
+        <p>Please login to access your health recommendations</p>
+    </div>
+    <div class="login-inputs">
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" [(ngModel)]="email" placeholder="Enter your email">
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" [(ngModel)]="password" placeholder="Enter your password">
+        </div>
+        <button (click)="login()" class="login-button">Login</button>
+    </div>
+    <div class="error">{{errorMessage}}</div>
+    <!-- <div class="login-footer">
+        <p>Don't have an account? <a href="#">Sign up</a></p>
+        <p><a href="#">Forgot password?</a></p>
+    </div> -->
+</div>
